@@ -9,6 +9,7 @@ public class Model extends Observable {
 	public void setDistance(int dist) {
 		setChanged();
 		this.distance = dist;
+		System.out.println("new Distance" + dist);
 		notifyObservers(this.getDistance());
 	}
 	

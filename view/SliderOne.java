@@ -13,9 +13,18 @@ public class SliderOne extends Slider implements Observer {
 
 	private Model model;
 	
+	private void addSliderListener(SliderOne s1) {
+		s1.valueProperty().addListener(new ChangeListener<Number>() {
+			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
+				System.out.println(old_val + " Value has changed! " + new_val);
+				s1.model.setDistance((int) new_val);
+			}
+		});
+	}
 	
 	public void setModel(Model model) {
 		this.model = model;
+//		this.addSliderListener(this);
 	}
 	
 	public SliderOne() {
@@ -26,18 +35,9 @@ public class SliderOne extends Slider implements Observer {
 		this.setValue(50);
 		this.setMin(0);
 		this.setMax(100);
-		this.valueProperty().addListener(new ChangeListener<Number>() {
-			public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
-				System.out.println(old_val + " Value has changed! " + new_val);
-			}
-		});
+		
 	}
 	
-//	@Override
-//	public void actionPerformed(ActionEvent e) {
-//		System.out.println("changed!");
-//		this.model.setDistance((int) this.getValue());
-//	}
 	
 	@Override
 	public void update(Observable arg0, Object arg1) {
