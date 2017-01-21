@@ -1,49 +1,58 @@
 package view;
 
 import model.Model;
+
+import java.util.Observable;
+import java.util.Observer;
+
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Scene;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class View extends Application {
+public class View implements Observer {
 
 	private SliderOne sOne;
 	private SliderTwo sTwo;
+	private DistanceLabel label;
+	private GridPane grid;
+	private Scene scene;
 	
-	private Slider s1;
-	private Slider s2;
-	
-	
-	public void setSliderModel(Model model) {
-		this.sOne.setModel(model);
-		this.sTwo.setModel(model);
+	public Model model;
+
+
+	public View(Model model) {
+		//setup the GridPane
+		grid = new GridPane();
+		grid.setHgap(10);
+		grid.setVgap(10);
+		
+		//setup the Sliders and the Label with model
+		sOne = new SliderOne(model);
+		sTwo = new SliderTwo(model);
+		label = new DistanceLabel(model);
+
+		//add elements to the GridPane
+		grid.add(sOne, 0, 1);
+		grid.add(sTwo, 0, 2);
+		grid.add(label, 0, 0);
+		
+		scene = new Scene(grid, 450, 450);
+	}
+
+	public void show(Stage stage) {
+		stage.setScene(scene);;
+		stage.show();
 	}
 	
-		@Override
-	public void start(Stage primaryStage) throws Exception {
-			
-//			sOne = new SliderOne();
-//			sTwo = new SliderTwo();
-			
-			GridPane grid = new GridPane ();
-//			grid.add(sOne, 1, 1);
-//			grid.add(sTwo, 1, 2);
-//			
-			
-			s1 = new Slider();
-			s2 = new Slider();
-			
-		 
-			Scene scene = new Scene(grid, 640, 480);
-			primaryStage.setScene(scene);
-			primaryStage.show();
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		System.out.println("has changed");
 
 	}
-		
-		public static void main(String[] args) {
-			launch();
-		}
 
 }
