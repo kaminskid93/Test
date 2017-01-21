@@ -16,6 +16,8 @@ public class Controller extends Application{
 		
 		model = new Model();
 		view = new View(model);
+		model.addObserver(view.getSliderOne());
+		model.addObserver(view.getDistLabel());
 		
 		view.show(primaryStage);
 		

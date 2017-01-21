@@ -54,5 +54,21 @@ public class View implements Observer {
 		System.out.println("has changed");
 
 	}
+	
+	public SliderOne getSliderOne() {
+		return this.sOne;
+	}
+	
+	public SliderTwo getSliderTwo() {
+		return this.sTwo;
+	}
+	
+	public Scene getScene() {
+		return this.scene;
+	}
+	
+	public DistanceLabel getDistLabel() {
+		return this.label;
+	}
 
 }

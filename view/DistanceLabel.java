@@ -12,7 +12,7 @@ public class DistanceLabel extends Label implements Observer {
 	private Model model;
 	
 	public DistanceLabel(Model model) {
-		this.setText("Hallo, dies ist der Unit Converter 5000.");
+		this.setText((int) model.getDistance() + " Kilometer sind umgerechnet " + (int) (model.getDistance() * model.KM_TO_MILES) + " Meilen.");
 		this.model = model;
 	}
 
@@ -20,7 +20,7 @@ public class DistanceLabel extends Label implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
-		
+		this.setText((int) arg + " Kilometer sind umgerechnet " + (int) ((int) arg * model.KM_TO_MILES) + " Meilen.");
 		
 	}
 

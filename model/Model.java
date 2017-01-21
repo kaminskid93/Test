@@ -4,7 +4,7 @@ import java.util.Observable;
 public class Model extends Observable {
 
 	
-	private double distance = 0;
+	private double distance = 50;
 	
 	public static final double MILES_TO_KM = 1.60934;
 	public static final double KM_TO_MILES = 0.621371;
