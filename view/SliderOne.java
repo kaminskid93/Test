@@ -16,7 +16,6 @@ public class SliderOne extends Slider implements Observer {
 		this.setMax(100);
 	}
 	
-	
 	@Override
 	public void update(Observable model, Object val) {
 		// TODO Auto-generated method stub

@@ -1,9 +1,7 @@
 package view;
 
-import model.Model;
 import java.util.Observable;
 import java.util.Observer;
-
 import javafx.scene.control.Slider;
 
 public class SliderTwo extends Slider implements Observer {
@@ -19,7 +17,7 @@ public class SliderTwo extends Slider implements Observer {
 	}
 
 	@Override
-	public void update(Observable o, Object arg) {
+	public void update(Observable model, Object val) {
 		// TODO Auto-generated method stub
 
 	}

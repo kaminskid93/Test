@@ -9,9 +9,10 @@ import javafx.stage.Stage;
 
 public class View {
 
-	private SliderOne sOne;
-	private SliderTwo sTwo;
-	private DistanceLabel label;
+	public SliderOne sOne;
+	public SliderTwo sTwo;
+	public DistanceLabel label;
+	
 	private GridPane grid;
 	private Scene scene;
 	

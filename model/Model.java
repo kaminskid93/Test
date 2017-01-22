@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 public class Model extends Observable {
 
 	
-	private double distance = 50;
+	private int distance = 50;
 	private Stage primaryStage = null;
 	
 	public static final double MILES_TO_KM = 1.60934;
@@ -16,18 +16,18 @@ public class Model extends Observable {
 		this.primaryStage = primaryStage;
 	}
 	
-	public void setDistance(double dist) {
-		setChanged();
-		this.distance = dist;
+	public void setDistance(int dist) {
+//		setChanged();
+		distance = dist;
 		System.out.println("new Distance " + dist);
-		notifyObservers(this.getDistance());
+//		notifyObservers(this.getDistance());
 	}
 	
 	public Stage getPrimaryStage() {
 		return primaryStage;
 	}
 	
-	public double getDistance() {
+	public int getDistance() {
 		return distance;
 	}
 }
