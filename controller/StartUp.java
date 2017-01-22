@@ -5,22 +5,18 @@ import javafx.stage.Stage;
 import model.*;
 import view.*;
 
-public class Controller extends Application{
+public class StartUp extends Application{
 	
-	private View view;
+	private ViewController viewControl;
 	private Model model;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		
-		model = new Model();
-		view = new View(model);
-		model.addObserver(view.getSliderOne());
-		model.addObserver(view.getDistLabel());
-		
-		view.show(primaryStage);
-		
+		model = new Model(primaryStage);
+		viewControl = new ViewController(model);
+		viewControl.show();
 		
 	}
 

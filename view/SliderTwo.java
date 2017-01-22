@@ -8,11 +8,7 @@ import javafx.scene.control.Slider;
 
 public class SliderTwo extends Slider implements Observer {
 
-	private Model model;
-
-	
-
-	public SliderTwo(Model model) {
+	public SliderTwo() {
 		this.setShowTickLabels(true);
 		this.setShowTickMarks(true);
 		this.setMajorTickUnit(20);
@@ -20,7 +16,6 @@ public class SliderTwo extends Slider implements Observer {
 		this.setValue(50);
 		this.setMin(0);
 		this.setMax(100);
-		this.model = model;
 	}
 
 	@Override
