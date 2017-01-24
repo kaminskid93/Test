@@ -26,7 +26,7 @@ public class SliderTwoController implements ChangeListener {
 	public void stateChanged(ChangeEvent e) {
 		SliderOne slider1 = (SliderOne) e.getSource();
 		model.setDistance((int) slider1.getValue()); 
-		System.out.println("State Changed");
+		System.out.println("State did change");
 	}
 	
 	

@@ -19,5 +19,9 @@ public class StartUp extends Application{
 		viewControl.show();
 		
 	}
+	
+	public static void main(String[] args) {
+		start();
+	}
 
 }
