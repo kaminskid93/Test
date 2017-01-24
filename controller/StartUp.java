@@ -21,7 +21,7 @@ public class StartUp extends Application{
 	}
 	
 	public static void main(String[] args) {
-		start();
+		launch();
 	}
 
 }

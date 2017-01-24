@@ -1,11 +1,10 @@
 package view;
 
-
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Slider;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import model.*;
 
 public class View {
 
@@ -16,7 +15,7 @@ public class View {
 	private GridPane grid;
 	private Scene scene;
 	
-
+	private Model model;
 
 	public View() {
 		//setup the GridPane
@@ -27,12 +26,12 @@ public class View {
 		//setup the Sliders and the Label with model
 		sOne = new SliderOne();
 		sTwo = new SliderTwo();
-//		label = new DistanceLabel();
+		label = new DistanceLabel();
 
 		//add elements to the GridPane
 		grid.add(sOne, 0, 1);
 		grid.add(sTwo, 0, 2);
-//		grid.add(label, 0, 0);
+		grid.add(label, 0, 0);
 		
 		scene = new Scene(grid, 450, 450);
 	}
@@ -42,7 +41,6 @@ public class View {
 		stage.show();
 	}
 
-	
 	public SliderOne getSliderOne() {
 		return this.sOne;
 	}
@@ -57,6 +55,10 @@ public class View {
 	
 	public DistanceLabel getDistLabel() {
 		return this.label;
+	}
+	
+	public void setModel(Model model) {
+		this.model = model;
 	}
 
 }

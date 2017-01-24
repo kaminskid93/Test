@@ -1,33 +1,24 @@
 package controller;
 
 import view.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import model.*;
-
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
-
+import util.Util;
 
 public class SliderTwoController implements ChangeListener {
 
 	private Model model;
-	private View view;
 	
 	public SliderTwoController(Model model) {
 		this.model = model;
-		this.view = new View();
 	}
 	
-	public void show() {
-		view.show(model.getPrimaryStage());
-	}
-
 	@Override
-	public void stateChanged(ChangeEvent e) {
-		SliderOne slider1 = (SliderOne) e.getSource();
-		model.setDistance((int) slider1.getValue()); 
-		System.out.println("State did change");
+	public void changed(ObservableValue slider1, Object oldValue, Object newValue) {
+		
+		model.setDistance((int) Math.round(Util.milesToKm(((Number) newValue).doubleValue())));
+
 	}
-	
 	
 }

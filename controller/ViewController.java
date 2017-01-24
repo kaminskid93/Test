@@ -20,11 +20,14 @@ public class ViewController {
 		this.model = model;
 		this.view = new View();
 		
-		SliderOne slide1 = view.getSliderOne();
-		SliderTwo slide2 = view.getSliderTwo();
+		view.getSliderOne().addChangeListener(new SliderOneController(model));
+		view.getSliderTwo().addChangeListener(new SliderTwoController(model));
+				
+		model.addObserver(view.getSliderOne());
+		model.addObserver(view.getSliderTwo());
+		model.addObserver(view.getDistLabel());
 		
-		model.addObserver(slide1);
-		model.addObserver(slide2);
+		model.setDistance(50);
 		
 		
 		
